@@ -49,7 +49,7 @@
 
 /* -- Styling for the ship "blocks" -- */
 
-/* The Destroyer (2 hitpoints) */
+/* The Destroyer ( 2 hitpoints ) */
 .destroyer-container{
     width: 80px;
     height: 40px;
@@ -66,11 +66,78 @@
     flex-wrap: wrap;
 }
 
-/* The Submarine (3 hitpoints) */
+/* The Submarine ( 3 hitpoints ) */
 .submarine-container{
     width: 120px;
     height: 40px;
     background-color: whitesmoke;
     display: flex;
     margin: 5px;
+}
+.submarine-container-vertical{
+    width: 40px;
+    height: 120px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap
+}
+
+/* The Cruiser ( 3 hitpoints ) */
+.cruiser-container{
+    width: 120px;
+    height: 40px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+}
+.cruiser-container-vertical{
+    width: 40px;
+    height: 120px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+/* The Battleship ( 4 hitpoints ) */
+.battleship-container{
+    width: 160px;
+    height: 40px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+}
+.battleship-container-vertical{
+    width: 40px;
+    height: 160px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+/* The Carrier ( 5 hitpoints ) */
+.carrier-container{
+    width: 200px;
+    height: 40px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+}
+.carrier-container-vertical{
+    width: 40px;
+    height: 200px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+.ship div{
+    width: 40px;
+    height: 40px;
+}
+.ship{
+    background-color: whitesmoke;
 }
