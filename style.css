@@ -1,0 +1,76 @@
+.div-grids{
+    display: flex;
+    flex-direction: row;
+}
+
+/* -- The "gamescreen" -- */
+
+.panel {
+    display: flex;
+    flex-direction: row;
+}
+
+.grid-player{
+    width: 400px;
+    height: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aqua;
+    margin: 20px;
+}
+.grid-ai{
+    width: 400px;
+    height: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aqua;
+    margin: 20px;
+}
+
+.grid div{
+    width: 40px;
+    height: 40px;
+}
+
+/* -- Styling for the container holding the ships -- */
+
+.ships-container{
+    width: 220px;
+    min-width: 220px;
+    height: 400px;
+    background-color: slategrey;
+    margin: 20px;
+    overflow-y: scroll;
+}
+
+/* -- Styling for the ship "blocks" -- */
+
+/* The Destroyer (2 hitpoints) */
+.destroyer-container{
+    width: 80px;
+    height: 40px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+}
+.destroyer-container-vertical{
+    width: 40px;
+    height: 80px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+/* The Submarine (3 hitpoints) */
+.submarine-container{
+    width: 120px;
+    height: 40px;
+    background-color: whitesmoke;
+    display: flex;
+    margin: 5px;
+}
