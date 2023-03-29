@@ -40,7 +40,7 @@ const shipsArray = [
             vertical: [0, width, width*2, width*3, width*4]
         }
     }
-]
+];
 
 const game = {
     currentPlayer: "Player",
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     shipsContainer.addEventListener('mousedown', e => {
         grabShip(e, target);
-    })
+    });
 console.log('first ship in ships array: ',ships[0]);
     ships.forEach(ship => ship.addEventListener('dragstart', e => {dragStart(e, target)}));
 
@@ -117,8 +117,8 @@ console.log('first ship in ships array: ',ships[0]);
     resetButton.addEventListener('click', e => {
         startButton.disabled = false;
         reset(e, shipsContainer)
-    });
-})
+    })
+});
 
 function reset (e, shipsContainer) {
     playerSquares.forEach(square => {
@@ -156,7 +156,7 @@ function reset (e, shipsContainer) {
             <div id="carrier-4"></div>
         </div>`
     }
-}
+};
 
 // The following function is written to render the board by taking in
 // parameters: the 'grid' which we need squares for,
@@ -170,7 +170,7 @@ function renderBoard(grid, squares, width) {
         grid.appenChild(square);
         squares.push(square);
     }
-}
+};
 
 
 function generate(dir, ship, squares){
@@ -186,40 +186,72 @@ function generate(dir, ship, squares){
     const isAtLeftEdge = current.some(index => (randomStart + index) % 10 === 0)
 
     if(!isTaken && !isAtRightEdge && !isAtLeftEdge) current.forEach(index => squares[randomStart + index].classList.add('taken', ship.name, 'ship'))
-}
+};
 
 function rotate(ship){
     console.log(ship)
     console.log(ship.classList[1])
     ship.classList.toggle(`${ship.classList[1]}-vertical`)
-}
+};
 
 function grabShip(e, target){
     console.log('grabShip e.target: ', e.target);
     target['shipNameWithId'] = e.target.id;
-}
+};
 
 function dragOver(e){
     e.preventDefault();
-}
+};
 function dragEnter(e){
     e.preventDefault();
-}
+};
 function dragLeave(){
     console.warn('leaving')
-}
+};
 function dragEnd(){
-}
+};
 
 function dragDrop(e, target, squares, container){
     let draggedShipNameWithLastId = target.ship.lastElementChild.id;
     let draggedShipClass = draggedShipNameWithLastId.slice(0, -2);
     let draggedShipLastIndex = parseInt(draggedShipNameWithLastId.substr(-1));
     let draggedShipIndex = parseInt(target.shipNameWithId.substr(-1));
-    let recievingSquare = parseInt(e.target.dataset.id);
-    let droppedShipFirstId = recievingSquare - draggedShipIndex;
-    let droppedShipLastId = draggedShipLastIndex - draggedShipIndex + recievingSquare;
-    // ...this is beginning to hurt my brain, more for reasons outside
-    // of class, gonna commit this progress and probably take a 
-    // much needed depression nap...
-}
+    let receivingSquare = parseInt(e.target.dataset.id);
+    let droppedShipFirstId = receivingSquare - draggedShipIndex;
+    let droppedShipLastId = draggedShipLastIndex - draggedShipIndex + receivingSquare;
+    
+    let isVertical = [...target.ship.classList].some(className => className.includes('vertical'));
+
+    if(!isVertical){
+        console.log('it is horizontal')
+        let current = shipsArray.find(ship => ship.name === draggedShipClass).directions.horizontal;
+        let isTaken = current.some(index => squares[droppedShipFirstId +index].classList.contains('taken', draggedShipClass, 'ship'));
+        if(Math.floor(droppedShipLastId / 10) === Math.floor(receivingSquare / 10) && !isTaken){
+            console.log('it fits on the same line and none of the squares are already taken');
+            for(let i = 0; i < target.shipLength; i++){
+                squares[receivingSquare - draggedShipIndex + i].classList.add('taken', draggedShipClass, 'ship')
+            }
+            container.removeChild(target.ship);
+        }else{
+            //error flag
+            console.log('Warning, logic error please revise code.')
+        }
+    }else{
+        let current = shipsArray.find(ship => ship.name === draggedShipClass).directions.vertical;
+        let isTaken = current.some(index => squares[droppedShipFirstId +index].classList.contains('taken'));
+    
+        if(receivingSquare + (target.shipLength - 1)* 10 < 100 && !isTaken){
+            for(let i = 0; i < target.shipLength; i++){
+                squares[receivingSquare - draggedShipIndex + (10 * i)].classList.add('taken', draggedShipClass, 'ship')
+            }
+            container.removeChild(target.ship);
+        }else{
+            //error flag
+            console.log('Warning, logic error please revise code.')
+        }
+    }
+    if(!container.querySelector('.ship')) allShipsInPlace = true;
+};
+
+//This is some annoyingly tedious logic and im conflicted that this is all I managed to get done today.
+//happy i got through it, dissapointed I couldnt get further
