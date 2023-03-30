@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battleships</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="battleship.js"></script>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Battle Ships - The Game</title>
+        <link rel='stylesheet' href='style.css'>
+        <script src='battleship.js' charset='utf-8'></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class='panel'>
+            <div class='ships-container'>
+                <div class='ship destroyer-container' draggable="true">
+                    <div id="destroyer-0"></div>
+                    <div id="destroyer-1"></div>
+                </div>
+                <div class='ship submarine-container' draggable="true">
+                    <div id="submarine-0"></div>
+                    <div id="submarine-1"></div>
+                    <div id="submarine-2"></div>
+                </div>
+                <div class='ship cruiser-container' draggable="true">
+                    <div id="cruiser-0"></div>
+                    <div id="cruiser-1"></div>
+                    <div id="cruiser-2"></div>
+                </div>
+                <div class='ship battleship-container' draggable="true">
+                    <div id="battleship-0"></div>
+                    <div id="battleship-1"></div>
+                    <div id="battleship-2"></div>
+                    <div id="battleship-3"></div>
+                </div>
+                <div class='ship carrier-container' draggable="true">
+                    <div id="carrier-0"></div>
+                    <div id="carrier-1"></div>
+                    <div id="carrier-2"></div>
+                    <div id="carrier-3"></div>
+                    <div id="carrier-4"></div>
+                </div>
+            </div>
+            
+            <div class='div-container game-container'>
+                <div class='div-header'>
+                    <button id='start'>Start Game</button>
+                    <button id='randomize'>Randomize Ships</button>
+                    <button id='reset'>Reset Game</button>
+                    <button id="singlePlayerButton">Single Player</button>
+                    <h3 id='whose-go'>Your Go</h3>
+                    <h4 id='score'>Player <span id='player-score'>0</span> - <span id='ai-score'>0</span> AI </h4>
+                </div>
+                <div class='div-grids'>
+                    <div class='grid grid-player'>
     
-</head>
-<body>
-
-
-
-    <!-- Part One: Container for all the ships before I place them on the board -->
-    <div class="panel">
-        <div class="ships-container">
-            <div class="ship destroyer-container" draggable="true">
-                <div id="destroyer-0"></div>
-                <div id="destroyer-1"></div>
-            </div>
-            <div class="ship submarine-container" draggable="true">
-                <div id="submarine-0"></div>
-                <div id="submarine-1"></div>
-                <div id="submarine-2"></div>
-            </div>
-            <div class="ship cruiser-container" draggable="true">
-                <div id="cruiser-0"></div>
-                <div id="crusier-1"></div>
-                <div id="crusier-2"></div>
-            </div>
-            <div class="ship battleship-container" draggable="true">
-                <div id="battleship-0"></div>
-                <div id="battleship-1"></div>
-                <div id="battleship-2"></div>
-                <div id="battleship-3"></div>
-            </div>
-            <div class="ship carrier-container" draggable="true">
-                <div id="carrier-0"></div>
-                <div id="carrier-1"></div>
-                <div id="carrier-2"></div>
-                <div id="carrier-3"></div>
-                <div id="carrier-4"></div>
-            </div>
-        </div>
-
-
-
-        <!-- Part Two: the header that displays all the game information and buttons for the games controls. (The grid divs are empty for the javascript to fill them later!) -->
-        <div class="div-container game-container">
-            <div class="div-header">
-                <button id="start">Start Game</button>
-                <button id="randomize">Randomize Ships</button>
-                <button id="reset">Reset Game</button>
-                <h3 id="whose-turn">Your Turn</h3>
-                <h4 id="score">Player <span id="player-score">0</span> - <span id="ai-score">0</span></h4>
-            </div>
-            <div class="div-grids">
-                <div class="grid grid-player">
-
-                </div>
-                <div class="grid grid-ai">
-
+                    </div>
+                    <div class='grid grid-ai'>
+                        
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-</body>
+        <div>
+            <h3>How To Play:</h3>
+            <ul>
+                <li>First, click "Single Player".</li>
+                <li>Second, click "Randomize Ships" or Drag/Drop your ships.</li>
+                <li>Third, click "Start Game".</li>
+                <li>Now choose a spot on the right (enemy) board!</li>
+                <li>(If reset button doesn't remove markers, simply refresh the page!)</li>
+            </ul>
+        </div>
+    </body>
 </html>
