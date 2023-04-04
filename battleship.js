@@ -327,7 +327,7 @@ function playGameSingle(game, turnsDisplay, aiGrid){
     if(game.currentPlayer === 'player'){
         turnsDisplay.textContent = 'Your Go';
         aiGrid.style.pointerEvents = 'auto';
-    }else if(game.currentPlayer === 'ai'){
+    }else if(game.currentPlayer === 'ai'){ 
         aiGrid.style.pointerEvents = 'none';
         turnsDisplay.textContent = 'Opponent Go';
         setTimeout (() => {
