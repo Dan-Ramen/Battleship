@@ -97,6 +97,7 @@ _squares_: the array holding the player’s grid information where we are placin
 
 _container_: which is the ship’s container so we can remove the ship in question once it is placed.
 once called the method figure the ship, the ship size, the receiving square in the grid, the start and the end of the dropped ship. Knowing the direction of the ship the method makes sure that no square where the ship should be placed is already taken and that the ship fits the grid div. If so it places it and removes it from the container, otherwise the ship appears back in the container and no changes happen in the grid.
+
 ===============================
 # Acknowledgments
 In my case I didn't really work with many people in regards to my code, most of my "Help" was done through extensive solo research on syntax and applications we haven't necessarily used in class.
